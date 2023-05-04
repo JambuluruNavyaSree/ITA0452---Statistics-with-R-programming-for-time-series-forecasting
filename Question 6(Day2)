@@ -1,0 +1,3 @@
+country <-c("USA","USA","USA","USA","UK","USA","USA","India","USA","USA")
+df1 <-cbind(df,country)
+print(df1)
