@@ -1,0 +1,2 @@
+sorted_df <- df[order(df$name,df$score),]
+print(sorted_df)
