@@ -1,0 +1,23 @@
+#basic information of features
+data("iris")
+dim(iris)
+str(iris)
+summary(iris)
+apply(iris[,1:4],2,sd)
+#mean and sd
+aggregate(iris[,1:4],by=list(Species = iris$Species),
+          FUN = function(x) c(mean(x),sd(x)))
+#quantile of speal length and width
+quantile(iris$Sepal.Length)
+quantile(iris$Sepal.Width)
+#new df iris1
+iris1 <- iris
+iris1$Sepal.Length.Cate <- cut(iris1$Sepal.Length,breaks =
+                                 quantile(iris1$Sepal.Length),include.lowest = TRUE)
+print(iris1)
+#average of numerical values
+aggregate(.~Species + Sepal.Length.Cate,data = iris1,FUN
+          =mean)
+# create pivot table with average of value as summary
+library(dplyr)
+iris1 %>% group_by(Species) %>% summarize(average_values = mean(Sepal.Length))
