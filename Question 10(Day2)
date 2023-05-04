@@ -1,0 +1,9 @@
+data("airquality")
+if(is.data.frame(airquality)){
+  print("airquality is a dataframe")
+}else{
+  print("airquality is not a dataframe")
+}
+airquality_ordered <- airquality[order(airquality$Ozone,airquality$Temp),]
+airquality_subset <- airquality_ordered[,c("Ozone","Temp","Day","Month")]
+print(airquality_subset)
